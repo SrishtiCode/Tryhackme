@@ -189,8 +189,9 @@ cd root
 cat root.txt
 2e337b8c9f3aff0c2b3e8d4e6a7c88fc
 ```
-Flag root
-2e337b8c9f3aff0c2b3e8d4e6a7c88fc
+What is the root flag?
+`2e337b8c9f3aff0c2b3e8d4e6a7c88fc`
+
 
 
 
