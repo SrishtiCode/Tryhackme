@@ -44,7 +44,7 @@ Easy
 | &#x2611; Completed | Room Title | Category |
 |-------------|------------|----------|
 | &#x2610; | Easy Peasy | EASY |
-| &#x2610; | GamingServer | EASY |
+| &#x2611; | GamingServer | EASY |
 | &#x2610; | Tony the Tiger | EASY |
 | &#x2610; | OverlayFS - CVE-2021-3493 | EASY |
 | &#x2610; | CTF collection Vol.1 | EASY |
